@@ -10,17 +10,17 @@ import javax.persistence.Table;
 import lombok.Data;
 
 @Entity
-@Table(name="leave", schema="app")
+@Table(name = "leave", catalog = "app")
 @Data
 public class Leave {
     @Id
-    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @Column(name = "task_id")
     private String taskId;
 
-    @Column(name="task_description")
+    @Column(name = "task_description")
     private String taskDescription;
 
     @Column

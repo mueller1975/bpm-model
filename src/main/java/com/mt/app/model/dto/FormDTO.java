@@ -3,20 +3,32 @@ package com.mt.app.model.dto;
 import java.io.Serializable;
 import java.util.Date;
 
-import lombok.Data;
+import com.mt.core.model.audit.AuditableDTO;
 
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+
+@EqualsAndHashCode(callSuper=false)
 @Data
-public class FormDTO implements Serializable {
+public class FormDTO extends AuditableDTO implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     private Integer id;
 
-    private String taskId;
+    private String approvalStatus;
 
-    private String taskDescription;
+    private String jsonData;
 
-    private String jsonData = "{}";
+    private String productCategory;
+
+    private String productNo;
+
+    private String orderNo;
+
+    private String clientNo;
+
+    private String clientName;
 
     private Date timestamp;
 

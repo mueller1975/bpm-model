@@ -16,13 +16,11 @@ import com.mt.app.model.dao.ConfigRepository;
 import com.mt.app.model.dto.ConfigDTO;
 import com.mt.app.model.entity.Config;
 import com.mt.core.model.exception.ServiceException;
+import com.mt.core.model.service.AbstractService;
 import com.mt.core.model.vo.OptionVO;
 
 @Service
-public class ConfigService {
-
-	@Autowired
-	private ConfigRepository configDAO;
+public class ConfigService extends AbstractService<Config, String, ConfigDTO, ConfigRepository> {
 
 	/**
 	 * 查詢 code 設定值
@@ -31,12 +29,12 @@ public class ConfigService {
 	 * @return
 	 */
 	public Config getConfigByCode(String code) {
-		Config entity = configDAO.findById(code).orElse(null);
+		Config entity = dao.findById(code).orElse(null);
 		return entity;
 	}
 
 	public Collection<Object> getConfigsByCategory(String category) throws ServiceException {
-		List<Config> entities = configDAO.findByCategory(category);
+		List<Config> entities = dao.findByCategory(category);
 
 		ObjectMapper mapper = new ObjectMapper();
 		List<Object> list = new ArrayList<>();
@@ -76,8 +74,8 @@ public class ConfigService {
 		return list;
 	}
 
-	@Transactional(readOnly = false)
-	public Iterable<Config> saveAll(List<Config> entities) {
-		return configDAO.saveAll(entities);
-	}
+	// @Transactional(readOnly = false)
+	// public Iterable<Config> saveAll(List<Config> entities) {
+	// return configDAO.saveAll(entities);
+	// }
 }

@@ -9,12 +9,16 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.mt.core.model.audit.AuditableEntity;
+
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 @Entity
-@Table(name = "form", schema = "app")
+@Table(name = "form", catalog = "app")
+@EqualsAndHashCode(callSuper = false)
 @Data
-public class Form {
+public class Form extends AuditableEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -25,19 +29,19 @@ public class Form {
     @Column(name = "json_data")
     private String jsonData;
 
-    @Column(name="product_category")
+    @Column(name = "product_category")
     private String productCategory;
 
-    @Column(name="product_no")
+    @Column(name = "product_no")
     private String productNo;
 
-    @Column(name="order_no")
+    @Column(name = "order_no")
     private String orderNo;
 
-    @Column(name="client_no")
+    @Column(name = "client_no")
     private String clientNo;
 
-    @Column(name="clientName")
+    @Column(name = "clientName")
     private String clientName;
 
     @Column(name = "timestamp_")

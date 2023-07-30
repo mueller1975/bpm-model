@@ -4,15 +4,16 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.mt.app.model.dao.FormDAO;
+import com.mt.app.model.dao.FormRepository;
 import com.mt.app.model.dto.FormDTO;
 import com.mt.app.model.entity.Form;
+import com.mt.core.model.service.AbstractService;
 
 @Service("mtFormService")
-public class FormService {
+public class FormService extends AbstractService<Form, Integer, FormDTO, FormRepository> {
 
     @Autowired
-    private FormDAO formDAO;
+    private FormRepository formDAO;
 
     @Autowired
     private ModelMapper modelMapper;

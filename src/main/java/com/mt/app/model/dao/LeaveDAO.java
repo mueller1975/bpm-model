@@ -1,9 +1,8 @@
 package com.mt.app.model.dao;
 
-import org.springframework.data.repository.CrudRepository;
-
 import com.mt.app.model.entity.Leave;
+import com.mt.core.model.dao.BaseJpaRepository;
 
-public interface LeaveDAO extends CrudRepository<Leave,Integer> {
+public interface LeaveDAO extends BaseJpaRepository<Leave,Integer> {
     
 }

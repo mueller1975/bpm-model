@@ -9,7 +9,7 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "config", schema = "app")
+@Table(name = "config", catalog = "app")
 public class Config {
 
 	@Id
